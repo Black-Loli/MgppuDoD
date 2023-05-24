@@ -1,0 +1,843 @@
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #CFD2D6FF #FBFAFA;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(116, 112, 112, 0.03);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(0, 26, 48, 0.20);
+    border-radius: 5px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    overflow-y: scroll;
+    overflow-x: clip;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #001A30;
+    height: 100px;
+    border-bottom: 1px solid #747070;
+}
+
+.container {
+    padding: 80px 20px 0;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    color: #001A30;
+}
+
+/*меню*/
+header div.menu-wrap {
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    color: #ffffff;
+}
+
+header div.container img {
+    height: 60px;
+}
+
+header div.container a {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    position: absolute;
+    background: #001A30;
+    top: 101px;
+    left: 0;
+    width: 100%;
+    list-style-type: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.5s;
+}
+
+header div.menu-wrap ul {
+    list-style-type: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+}
+
+header div.header ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    display: inline-block;
+    color: #DAE1E7;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 10px;
+    transition: ease-in-out 0.5s;
+    height: 30px;
+    border: 1px solid transparent;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    transform: translateY(-3px);
+    transition: ease-in-out 0.5s;
+    background: transparent;
+    border: 1px solid #ffffff85;
+    color: white;
+    box-shadow: -5px 5px 10px #ffffff30;
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked ~ nav {
+    max-height: 200px;
+    padding: 15px 0;
+    transition: all 0.5s;
+}
+
+label.menu {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    /*background: rgba(0, 27, 45, 0.7);*/
+    border: 1px solid #f9fdff;
+    padding: 1px;
+}
+
+label.menu:hover {
+    cursor: pointer;
+}
+
+.hide-des {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.menu-line {
+    display: block;
+    width: 10px;
+    height: 1px;
+    margin: 4px 0 3px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    transition: 500ms;
+    transform-origin: right center;
+    background-color: #f9fdff;
+}
+
+[for="checkbox"] > div > span:nth-child(4),
+[for="checkbox"] > div > span:nth-child(5),
+[for="checkbox"] > div > span:nth-child(6) {
+    border-radius: 0 2px 2px 0;
+    transform-origin: left center;
+}
+
+#checkbox:checked + label span:nth-child(2),
+#checkbox:checked + label span:nth-child(5) {
+    transform: scale(0);
+}
+
+#checkbox:checked + label span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#checkbox:checked + label span:nth-child(4) {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+#checkbox:checked + label span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+#checkbox:checked + label span:nth-child(6) {
+    transform: translateY(-8px) rotate(45deg);
+}
+
+/*страница*/
+main div.main {
+    background-color: #001A30;
+    width: 100%;
+    background-image: url("../img/psi.svg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+main div.main div.container h1 {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 39px;
+    text-align: center;
+    padding-bottom: 40px;
+    color: #ffffff;
+}
+
+main div.main div.container div.cards {
+    overflow-y: scroll;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 20px 0 116px;
+}
+
+main div.container .cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 40px 0;
+}
+
+main div.main div.container .cards .card {
+    width: 300px;
+}
+
+main div.main div.container .cards .card,
+main div.container .cards .card,
+main div.container .cards_grid__info .card {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 15px;
+    background: #001A30;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+main div.container .cards .card,
+main div.container .cards_grid__info .card {
+    background: rgba(116, 112, 112, 0.03);
+    border: 1px solid rgba(0, 26, 48, 0.20);
+}
+
+main div.container h2,
+main div.gallery_con h2,
+main div.maps div.contacts h2 {
+    text-align: center;
+    padding: 20px 0 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 56px;
+    /*margin: 0;*/
+}
+
+main div.maps div.contacts h2 {
+    text-align: left;
+    padding: 0;
+    margin-top: 0;
+}
+
+main div.main div.container .cards .card h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    padding: 0;
+    color: #ffffff;
+}
+
+main div.container .cards .card h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+}
+
+main div.container .cards_grid__info .card h3:last-child {
+    font-size: 26px;
+    color: #025E9F;
+}
+
+main div.main div.container .cards .card h2:last-child {
+    font-weight: 300;
+}
+
+main div.container p {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31px;
+    text-indent: 30px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+main div.container .tab-list {
+    width: 100%;
+    border-radius: 10px;
+    background: rgba(150, 207, 255, 0.2);
+    display: grid;
+    place-items: center;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+main div.container .tab-list > label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.5s;
+}
+
+main div.container .tab-list > label:hover {
+    background: rgba(150, 207, 255, 0.2);
+    transition: ease-in-out 0.5s;
+}
+
+.box-1 {
+    grid-area: a;
+}
+
+.box-2 {
+    grid-area: b;
+}
+
+.box-3 {
+    grid-area: c;
+}
+
+.box-4 {
+    grid-area: d;
+}
+
+.box-5 {
+    grid-area: e;
+}
+
+.box-6 {
+    grid-area: f;
+}
+
+.box-7 {
+    grid-area: g;
+}
+
+.tab-list input[type="radio"] {
+    display: none;
+}
+
+main div.container .tab_selector:checked + .tab_selector_label {
+    background: rgba(150, 207, 255, 0.5);
+    position: relative;
+    transition: ease-in-out 0.8s;
+}
+
+
+main div.container .tab_selector:checked + .tab_selector_label:before {
+    opacity: 1;
+}
+
+main div.container .tab_selector + .tab_selector_label:before {
+    content: attr(count);
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #001A30;
+    color: #FFFFFF;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: ease-in-out 1s;
+}
+
+main div.container .tab-content div {
+    display: none;
+    transition: ease-in-out 1s;
+}
+
+main div.container div.cards_grid {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 0;
+    transition: ease-in-out 1s;
+}
+
+main div.container div.cards_grid__info {
+    display: grid;
+    width: 100%;
+    gap: 30px;
+    padding: 40px 0;
+}
+
+main div.container div.cards_grid .card {
+    /*width: 370px;
+    height: 200px;*/
+    display: flex;
+    background: rgba(116, 112, 112, 0.03);
+    border: 1px solid rgba(0, 26, 48, 0.10);
+    border-radius: 10px;
+    cursor: pointer;
+    color: #001A30;
+    margin: 0 30px 30px 0;
+    padding: 20px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main div.container div.cards_grid .card h3 {
+    width: 360px;
+}
+
+main div.container div.cards_grid .card h3:last-child {
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+main div.container div.cards_grid .card:hover {
+    transform: translateY(-3px);
+    transition: ease-in-out 0.5s;
+    box-shadow: 0 10px 10px rgba(0, 26, 48, 0.2);
+}
+
+main div.bg {
+    width: 100%;
+    background: #001A30;
+    margin: 60px 0;
+}
+
+main div.bg div.container {
+    color: #FFFFFF;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 60px 20px;
+    align-items: center;
+}
+
+main div.bg div.container .text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main div.bg div.container .text h2,
+main div.bg div.container .text h3 {
+    text-align: left;
+    margin: 0 0 30px;
+    padding: 0;
+}
+
+main div.bg div.container img {
+    height: 234px;
+}
+
+main div.bg div.container .text a {
+    background: #FFFFFF;
+    color: #001A30;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main div.container h3 {
+    text-align: center;
+}
+
+main div.container p + h3 {
+    text-align: left;
+    font-size: 24px;
+}
+
+main div.container ul li {
+    font-size: 20px;
+    margin: 30px 0 0;
+    line-height: 30px;
+}
+
+main div.container ul li:first-child {
+    margin-top: 0;
+}
+
+main div.container ul + h3 {
+    font-size: 24px;
+}
+
+main div.gallery_con,
+main div.maps {
+    height: 400px;
+    /*overflow-x: scroll;*/
+    /*width: 100vw;*/
+    display: flex;
+    flex-direction: column;
+}
+
+main div.gallery_con h3 {
+    text-align: center;
+    font-size: 24px;
+}
+
+main div.gallery_con div.gallery {
+    overflow-x: overlay;
+    display: flex;
+    flex-direction: row;
+}
+
+main div.gallery_con.video_con {
+    height: auto;
+    padding-top: 100px;
+}
+
+main div.gallery_con div.gallery.videos {
+    height: 100%;
+}
+
+main div.gallery_con div.gallery.videos .video {
+    margin: 0 20px;
+    height: 100%;
+}
+
+main div.gallery_con div.gallery.videos .video img {
+    height: 300px;
+    background: linear-gradient(transparent, #FFFFFF);
+}
+
+main div.gallery_con div.gallery.videos .video h4 {
+    margin: 10px 0;
+}
+
+main div.gallery_con div.gallery.videos .video h5 {
+    margin: 0 0 20px;
+    /*margin-bottom: 10px;*/
+    font-weight: 400;
+}
+
+main div.maps {
+    position: relative;
+    height: 600px;
+}
+
+main div.maps div.contacts {
+    background: #FFFFFF;
+    width: 300px;
+    position: absolute;
+    left: 200px;
+    top: 120px;
+    padding: 50px 20px 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+footer {
+    width: 100%;
+    background: #001A30;
+}
+
+footer div.container {
+    padding: 60px 20px 40px;
+}
+
+footer div.container div.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer div.container div.footer .logo {
+    height: 100px;
+}
+
+footer div.container div.footer div.social p {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 0;
+}
+
+footer div.container div.footer div.social a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+footer div.container div.footer div.icon {
+    display: flex;
+    flex-direction: row;
+}
+
+footer div.container div.footer div.social a:last-child {
+    margin-right: 0;
+}
+
+footer div.container div.footer div.social a img {
+    height: 40px;
+    width: 40px;
+}
+
+footer div.container a {
+    height: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 30px;
+}
+
+/*Стили направлений*/
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-element {
+    flex: 50%;
+    padding: 10px;
+    color: blue;
+    width: 250px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info p {
+    margin: 0;
+    text-indent: 0;
+    text-align: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 859px) {
+    .container {
+        width: calc(100% - 40px);
+    }
+
+    main div.container div.cards_grid__info {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+
+    main div.container div.cards_grid .card {
+        width: 100%;
+        height: 200px;
+    }
+
+    main div.container div.cards_grid .card:nth-child(1n) {
+        margin-right: 0;
+    }
+
+    main div.container .tab-list {
+        grid-template:
+        "a" 50px
+        "b" 50px
+        "c" 50px
+        "d" 50px
+        "e" 50px
+        "g" 50px
+        "f" 50px / 1fr;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-1 {
+        border-radius: 10px 10px 0 0;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-5 {
+        border-radius: 0 0 0 0;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-6 {
+        border-radius: 0 0 0 0;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-7 {
+        border-radius: 0 0 10px 10px;
+    }
+    main div.container div.cards_grid .card_none{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 860px) and (max-width: 1279px) {
+    .container {
+        width: 820px;
+    }
+
+    main div.container div.cards_grid__info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    main div.container div.cards_grid .card {
+        width: 370px;
+        height: 200px;
+    }
+
+    main div.container div.cards_grid .card:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    main div.container .tab-list {
+        grid-template:
+        "a a b b c c d d e e" 50px
+        "f f f f f g g g g g" 50px / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-1 {
+        border-radius: 10px 0 0 0;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-5 {
+        border-radius: 0 10px 0 0;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-6 {
+        border-radius: 0 0 0 10px;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-7 {
+        border-radius: 0 0 10px 0;
+    }
+
+    main div.container div.cards_grid .card_none{
+        background: rgba(255, 255, 255, 0.03);
+        border: 0;
+        padding: 20px 10px;
+        width: 370px;
+        height: 200px;
+    }
+
+    main div.container div.cards_grid .card_none.card_none_a{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .menu-icon,
+    label {
+        display: none;
+    }
+
+    nav {
+        position: inherit;
+        /*top: -10px;*/
+        background-color: transparent;
+        max-height: 100px;
+        text-align: right;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    nav ul {
+        margin: 0;
+        height: 100%;
+
+    }
+
+    nav ul li {
+        display: inline-flex;
+        padding-left: 10px;
+        height: 80px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container {
+        width: 1240px;
+    }
+
+    main div.container div.cards_grid__info {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    main div.container div.cards_grid .card {
+        width: 370px;
+        height: 200px;
+    }
+
+    main div.container div.cards_grid .card:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    main div.container .tab-list {
+        grid-template:
+        "a a b b c c d d e e" 50px
+        "f f f f f g g g g g" 50px / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-1 {
+        border-radius: 10px 0 0 0;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-5 {
+        border-radius: 0 10px 0 0;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-6 {
+        border-radius: 0 0 0 10px;
+    }
+
+    main div.container .tab_selector:checked + .tab_selector_label.box-7 {
+        border-radius: 0 0 10px 0;
+    }
+
+    main div.container div.cards_grid .card_none{
+        background: rgba(255, 255, 255, 0.03);
+        border: 0;
+        padding: 20px 10px;
+        width: 370px;
+        height: 200px;
+    }
+}
